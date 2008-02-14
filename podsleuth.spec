@@ -9,6 +9,7 @@ Release: %{release}
 Source0: http://banshee-project.org/files/%name/%{name}-%{version}.tar.bz2
 License: BSD
 Group: System/Libraries
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url: http://banshee-project.org/PodSleuth
 BuildRequires: mono-devel
 BuildRequires: hal-devel
