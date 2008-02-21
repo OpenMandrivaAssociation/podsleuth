@@ -1,6 +1,6 @@
 %define name podsleuth
 %define version 0.6.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Extract metadata from Apple iPods
 Name: %{name}
@@ -39,6 +39,8 @@ rm -rf %{buildroot}
 mv %buildroot%_prefix/lib/podsleuth %buildroot%_libdir/
 %endif
 mkdir -p %buildroot/var/cache/podsleuth
+mkdir -p %buildroot%_libdir/hal/scripts
+mv %buildroot%_libdir/hal/hal-podsleuth %buildroot%_libdir/hal/scripts
 
 %clean
 rm -rf %{buildroot}
@@ -47,7 +49,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README NEWS
 %_bindir/podsleuth
-%_libdir/hal/hal-podsleuth
+%_libdir/hal/scripts/hal-podsleuth
 %_libdir/pkgconfig/podsleuth.pc
 %_libdir/podsleuth
 %_datadir/hal/fdi/policy/20thirdparty/20-podsleuth.fdi
