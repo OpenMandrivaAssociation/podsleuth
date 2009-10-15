@@ -1,13 +1,12 @@
 %define name podsleuth
-%define version 0.6.4
-%define release %mkrel 3
+%define version 0.6.5
+%define release %mkrel 1
 
 Summary: Extract metadata from Apple iPods
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://banshee-project.org/files/%name/%{name}-%{version}.tar.bz2
-Patch: podsleuth-0.6.3-new-sgutils.patch
+Source0: http://download.banshee-project.org/%name/%version/%{name}-%{version}.tar.bz2
 License: BSD
 Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -28,10 +27,6 @@ other applications to use.
 
 %prep
 %setup -q
-%patch -p1
-aclocal -I m4
-autoconf
-automake
 
 %build
 %configure2_5x
