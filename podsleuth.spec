@@ -1,5 +1,5 @@
 %define name podsleuth
-%define version 0.6.5
+%define version 0.6.6
 %define release %mkrel 1
 
 Summary: Extract metadata from Apple iPods
@@ -45,6 +45,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README NEWS
+%config(noreplace) %_sysconfdir/dbus-1/system.d/podsleuth.conf
 %_bindir/podsleuth
 %_libdir/hal/scripts/hal-podsleuth
 %_libdir/pkgconfig/podsleuth.pc
