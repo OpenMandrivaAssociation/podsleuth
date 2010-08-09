@@ -1,6 +1,6 @@
 %define name podsleuth
 %define version 0.6.7
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Extract metadata from Apple iPods
 Name: %{name}
@@ -13,11 +13,24 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url: http://banshee-project.org/PodSleuth
 BuildRequires: mono-devel
 BuildRequires: hal-devel
-BuildRequires: ndesk-dbus
+BuildRequires: ndesk-dbus-devel
 BuildRequires: libsgutils-devel
 Requires: hal
 
 %description
+PodSleuth is a tool to discover detailed model information about an
+Apple (TM) iPod (TM). Its primary role is to be run as a callout by
+HAL (http://freedesktop.org/wiki/Software_2fhal) because root access
+is needed to scan the device for required information. When the model
+information is discovered, it is merged into HAL as properties for
+other applications to use.
+
+%package devel
+Summary: Development files for %name
+Group: Development/Other
+Requires: %name = %version-%release
+
+%description devel
 PodSleuth is a tool to discover detailed model information about an
 Apple (TM) iPod (TM). Its primary role is to be run as a callout by
 HAL (http://freedesktop.org/wiki/Software_2fhal) because root access
@@ -48,9 +61,10 @@ rm -rf %{buildroot}
 %config(noreplace) %_sysconfdir/dbus-1/system.d/podsleuth.conf
 %_bindir/podsleuth
 %_libdir/hal/scripts/hal-podsleuth
-%_libdir/pkgconfig/podsleuth.pc
 #gw this must be in /usr/lib as referenced by the hal script
 %_prefix/lib/podsleuth
 %_datadir/hal/fdi/policy/20thirdparty/20-podsleuth.fdi
 %dir /var/cache/podsleuth
 
+%files devel
+%_libdir/pkgconfig/podsleuth.pc
