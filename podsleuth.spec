@@ -1,6 +1,6 @@
 %define name podsleuth
 %define version 0.6.7
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: Extract metadata from Apple iPods
 Name: %{name}
