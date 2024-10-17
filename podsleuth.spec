@@ -10,7 +10,7 @@ Source0: http://download.banshee-project.org/%name/%version/%{name}-%{version}.t
 License: BSD
 Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Url: http://banshee-project.org/PodSleuth
+Url: https://banshee-project.org/PodSleuth
 BuildRequires: mono-devel
 BuildRequires: hal-devel
 BuildRequires: ndesk-dbus-devel
